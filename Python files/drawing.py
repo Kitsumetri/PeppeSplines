@@ -20,6 +20,7 @@ def shit_finding_method(points):
                     print('Point of intersection: ', points[i])
 '''
 
+
 def draw_graph(curves_set, a, b, h):
 
     plt.figure(figsize=(7, 7))

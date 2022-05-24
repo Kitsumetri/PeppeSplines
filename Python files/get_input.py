@@ -1,5 +1,6 @@
 from io import StringIO
 import numpy as np
+from os import getcwd
 
 
 def get_points(curve):
@@ -27,7 +28,7 @@ def get_points(curve):
 def get_curves():
 
     def parse_str():
-        file = open('input.txt', 'r')  # Write a path to file
+        file = open(getcwd() + '/Input and tests/input.txt', 'r')  # Write a path to file
         lines = file.readlines()
         file.close()
         for i in range(2):

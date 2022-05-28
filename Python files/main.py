@@ -1,5 +1,6 @@
 from get_input import get_curves
 from drawing import draw_graph
+import newton
 
 
 def main():
@@ -17,5 +18,5 @@ def main():
 
 
 if __name__ == "__main__":
-    print(123)
+    # newton.main_newtone()
     main()

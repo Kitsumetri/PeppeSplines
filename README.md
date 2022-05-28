@@ -1,2 +1,2 @@
 # PeppeSplines
-Final Project from Fyodor Peplin's Directory
+Final Project from Feodor Peplin's Directory

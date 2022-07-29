@@ -1,4 +1,4 @@
-# PeppeSplines
+# PeppeSplines ([C++ version here](https://github.com/GrafVonTee/PeppeSplines/tree/main/src))
 #### Final Project from Feodor Peplin's Directory
 ## About this project
 It's a cubic spline interpolation for n-th points, that is read from `input.txt`. Moreover, this program find a **1** intersection point of two splines, if there aren't intersections the program will calculate minimum distance of this two curves. Graph ploting with specific signs is included.

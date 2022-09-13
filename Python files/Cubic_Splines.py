@@ -1,11 +1,13 @@
+import numpy as np
 
-def h(i, xs):
+
+def h(i: int, xs: list[float]) -> float:
     if i == 0:
         i += 1
     return xs[i] - xs[i - 1]
 
 
-def all_args(i, xs, ys):
+def all_args(i: int, xs: list[float], ys: list[float]) -> tuple[float, float, float, float]:
     F = (ys[i + 1] - ys[i]) / h(i + 1, xs) - (ys[i] - ys[i - 1]) / h(i, xs)
     A = h(i, xs) / 6
     B = (h(i, xs) + h(i + 1, xs)) / 3
@@ -13,21 +15,21 @@ def all_args(i, xs, ys):
     return A, B, C, F
 
 
-def alpha(i, xs, ys):
+def alpha(i: int, xs: list[float], ys: list[float]) -> float:
     A, B, C, F = all_args(i - 1, xs, ys)
     if i == 1:
         return -C / B
     return -C / (A * alpha(i - 1, xs, ys) + B)
 
 
-def beta(i, xs, ys):
+def beta(i: int, xs: list[float], ys: list[float]) -> float:
     A, B, C, F = all_args(i - 1, xs, ys)
     if i == 1:
         return F / B
     return (F - A * beta(i - 1, xs, ys)) / (A * alpha(i - 1, xs, ys) + B)
 
 
-def gamma(i, xs, ys):
+def gamma(i: int, xs: list[float], ys: list[float]) -> float:
     if i == 0 or i == len(xs) - 1:
         return 0
     if i == len(xs) - 2:
@@ -36,7 +38,7 @@ def gamma(i, xs, ys):
     return alpha(i + 1, xs, ys) * gamma(i + 1, xs, ys) + beta(i + 1, xs, ys)
 
 
-def spline(xs, ys, x):
+def spline(xs: list[float], ys: list[float], x: np.ndarray) -> list[float]:
     i = 0
     vals = []
     for xi in x:
@@ -51,7 +53,7 @@ def spline(xs, ys, x):
     return vals
 
 
-def der_spline(xs, ys, x):
+def der_spline(xs: list[float], ys: list[float], x: np.ndarray) -> list[float]:
     i = 0
     vals = []
     for xi in x:
@@ -66,7 +68,7 @@ def der_spline(xs, ys, x):
     return vals
 
 
-def der_der_spline(xs, ys, x):
+def der_der_spline(xs: list[float], ys: list[float], x: list[float]) -> list[float]:
     i = 0
     vals = []
     for xi in x:

@@ -4,7 +4,7 @@ from Cubic_Splines import spline
 from math import inf
 
 
-def der_local(y0, h):
+def der_local(y0: list[float], h: float) -> list[float]:
     vals = []
     for i in range(0, len(y0)-2):
         val = (y0[i+1] - y0[i])/h
@@ -12,7 +12,9 @@ def der_local(y0, h):
     return vals
 
 
-def intersection(a, b, h, x, y_1, y_3):
+def intersection(a: float, b: float, h: float,
+                 x: list[float],
+                 y_1: list[float], y_3: list[float]) -> tuple[float, float]:
     x0 = np.arange(a, b+h, h)
 
     new_y_1 = spline(x, y_1, x0)
@@ -26,7 +28,9 @@ def intersection(a, b, h, x, y_1, y_3):
     return min_x, min_y
 
 
-def do_operations(X1, Y1, X2, Y2, h, a, b):
+def do_operations(X1: list[float], Y1: list[float],
+                  X2: list[float], Y2: list[float],
+                  h: float, a: float, b: float) -> None:
     plt.figure(figsize=(7, 7))
 
     x0 = np.arange(a, b + h, h)
